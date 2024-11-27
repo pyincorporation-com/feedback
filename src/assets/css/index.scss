@@ -1,0 +1,201 @@
+body {
+  img.img-small {
+    width: 20%;
+  }
+
+  img.img-mid {
+    width: 40%;
+    min-width: 40%;
+  }
+}
+
+.buttons {
+  align-items: baseline;
+  button {
+    margin: 10px;
+    width: max-content;
+    border-radius: 50px;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: none;
+    transition: all ease-in-out 0.3s;
+    position: relative;
+    width: 150px;
+    font-size: 16px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  button:hover {
+    transform: scale(1.2);
+  }
+}
+
+.qn {
+  font-size: 40px;
+}
+
+.results {
+  border: solid 3px rgb(85, 85, 255);
+  color: blue;
+  border-radius: 50px;
+  position: relative;
+  transition: all ease-in-out 0.2s;
+  width: 100px;
+  transition: all ease-in-out 0.2s;
+  background-color: transparent;
+
+  span.text {
+    z-index: 2;
+    position: relative;
+  }
+}
+
+.results:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 255, 0.377);
+}
+
+.secondary-container {
+  transition: transform 1s ease, opacity 1s ease;
+  /* Initial state */
+  opacity: 1;
+  transform: scale(1);
+}
+
+.secondary-container.animate {
+  /* Animation state when button is clicked */
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.emoji-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.results {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.results:hover {
+  background-color: #0056b3;
+}
+
+div.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid var(--border-color);
+  animation: l20-1 1.6s infinite linear alternate, l20-2 3.2s infinite linear;
+}
+
+@keyframes l20-1 {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  }
+
+  12.5% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%
+    );
+  }
+
+  25% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 100%,
+      100% 100%,
+      100% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+
+  62.5% {
+    clip-path: polygon(
+      50% 50%,
+      100% 0,
+      100% 0%,
+      100% 0%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+
+  75% {
+    clip-path: polygon(
+      50% 50%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+
+  100% {
+    clip-path: polygon(
+      50% 50%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+}
+
+@keyframes l20-2 {
+  0% {
+    transform: scaleY(1) rotate(0deg);
+  }
+
+  49.99% {
+    transform: scaleY(1) rotate(135deg);
+  }
+
+  50% {
+    transform: scaleY(-1) rotate(0deg);
+  }
+
+  100% {
+    transform: scaleY(-1) rotate(-135deg);
+  }
+}
