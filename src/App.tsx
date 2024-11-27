@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import OpinionImg from "./assets/images/broadcast.png";
 import "bootstrap/dist/css/bootstrap.css";
@@ -14,7 +14,7 @@ function App() {
   const [clicked, setClicked] = useState<string | null>(null);
   const [hasAnswered, setHasAnswered] = useState<boolean>(false);
   const [loadAnswered, setLoadAnswered] = useState<boolean>(false);
-  const { packageId, feedbackQuestion, setFeedbackQuestion } = useInitialData();
+  const { packageId, feedbackQuestion } = useInitialData();
   const { setChartValues } = useChartValues()
   const { chatSocket, sendResponse } = useSocket(packageId, setHasAnswered, setLoadAnswered, setChartValues);
 

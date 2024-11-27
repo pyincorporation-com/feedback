@@ -1,8 +1,8 @@
 import FeedbackButtons from "./FeedbackButtons";
-import { Question, QuestionAnswer } from "../type";
+import { Question } from "../type";
 import PieChartComponent from "./PieChart";
-import { useEffect, useState } from "react";
-
+import { useEffect } from "react";
+import { useChartValues } from "../contexts/chartValuesProvider";
 
 interface QuestionContainerProps {
     feedbackQuestion: Question;
@@ -17,12 +17,17 @@ const QuestionContainer = ({
     handleClick,
     clicked,
 }: QuestionContainerProps) => {
+    const { setChartValues } = useChartValues();
 
-    const [chartValues, setChartValues] = useState<QuestionAnswer[] | null>(null)
     useEffect(() => {
-        setChartValues(feedbackQuestion.question_answers)
-    }, [])
-    var qn_headers = [
+        const transformedChartValues = feedbackQuestion.question_answers.map((answer) => ({
+            value: answer.answer_count, // Adjust according to your data structure
+            label: answer.answer,
+        }));
+        setChartValues(transformedChartValues);
+    }, [feedbackQuestion.question_answers, setChartValues]);
+
+    const qn_headers = [
         "Let me pause a question!",
         "Here's a quick question!",
         "What do you think?",
@@ -46,15 +51,17 @@ const QuestionContainer = ({
         "Your input, please!",
     ];
 
-
-
     return (
         <div
             className={`d-flex align-items-center flex-column secondary-container ${clicked ? "animate" : ""}`}
         >
             {!hasAnswered ? (
                 <>
-                    <h1><b><u>{qn_headers[Math.floor(Math.random() * qn_headers.length)]}</u></b></h1>
+                    <h1>
+                        <b>
+                            <u>{qn_headers[Math.floor(Math.random() * qn_headers.length)]}</u>
+                        </b>
+                    </h1>
                     <p className="qn">{feedbackQuestion.question_text}</p>
                     <FeedbackButtons
                         answers={feedbackQuestion.question_answers}
@@ -64,9 +71,16 @@ const QuestionContainer = ({
                 </>
             ) : (
                 <>
-                    <h1><b><u>Majority response</u></b></h1>
-                    <p className="qn"><b>Qn: </b>{feedbackQuestion.question_text}</p>
-                    <PieChartComponent chartValues={chartValues} />
+                    <h1>
+                        <b>
+                            <u>Majority response</u>
+                        </b>
+                    </h1>
+                    <p className="qn">
+                        <b>Qn: </b>
+                        {feedbackQuestion.question_text}
+                    </p>
+                    <PieChartComponent />
                 </>
             )}
         </div>
