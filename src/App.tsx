@@ -31,7 +31,7 @@ function App() {
       }
     }, 1000);
   };
-  console.log("feedbackQuestion || !chatSocket || chatSocket.readyState !== WebSocket.OPEN || !loadAnswered", feedbackQuestion, chatSocket, loadAnswered)
+
   if (!chatSocket || chatSocket.readyState !== WebSocket.OPEN || !loadAnswered) {
     return <Loader />;
   }

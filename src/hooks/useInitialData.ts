@@ -35,12 +35,8 @@ export const useInitialData = () => {
 
       if (response && response.status && response.response.status) {
         var main_body = response.response.main_body;
-        console.log(
-          "Object.entries(main_body).length",
-          Object.entries(main_body).length
-        );
+
         if (Object.entries(main_body).length > 0) {
-          console.log("nfdani", main_body);
           setFeedbackQuestion(main_body);
           var current_answers = main_body.question_answers;
           var formatedData: PieChartValues[] = [];
