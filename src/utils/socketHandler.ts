@@ -71,7 +71,6 @@ export const socketHandler = (
   };
 
   if (chatSocket.readyState === WebSocket.OPEN) {
-    setLoadAnswered(true);
     chatSocket.onmessage = async (event) => {
       try {
         const message = JSON.parse(event.data);
@@ -80,6 +79,7 @@ export const socketHandler = (
         switch (message.action) {
           case "answer_check":
             setHasAnswered(message.data);
+            setLoadAnswered(true);
             break;
           case "feedback_response":
             var label = content.answer;
