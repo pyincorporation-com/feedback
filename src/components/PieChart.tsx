@@ -44,7 +44,7 @@ const PieChartComponent = () => {
                             startAngle: -77,
                             endAngle: 225,
                             cx: cx_p,
-                            cy: 170,
+                            cy: 150,
                         },
                     ]}
                     margin={{
