@@ -23,6 +23,7 @@ function App() {
     setTimeout(() => {
       setClicked(null);
       if (feedbackQuestion) {
+        setHasAnswered(true);
         sendResponse({
           question: feedbackQuestion.question_text,
           question_id: feedbackQuestion.question_id,
