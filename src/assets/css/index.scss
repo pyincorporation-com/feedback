@@ -249,12 +249,14 @@ div.loader {
       width: 30%;
       font-size: 16px;
       padding: 0;
+      min-width: 100px;
       img {
         width: 60%;
       }
     }
     span {
       font-size: small;
+      margin-top: 10px;
     }
   }
   #root {
