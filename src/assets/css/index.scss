@@ -234,6 +234,7 @@ div.loader {
 @media screen and (max-width: 1024px) {
   .main-container {
     flex-direction: column-reverse;
+    align-items: start !important;
     .qn {
       font-size: 1.5rem;
     }
@@ -241,6 +242,7 @@ div.loader {
   img.img-mid {
     width: 60% !important;
     margin-bottom: 30px;
+    margin-top: 5%;
   }
 
   .buttons {
