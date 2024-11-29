@@ -9,12 +9,17 @@ body {
   }
 }
 
+.pie-chart {
+  display: flex;
+  align-items: center;
+}
+
 .buttons {
   align-items: baseline;
   button {
     margin: 10px;
     width: max-content;
-    border-radius: 50px;
+    border-radius: 10px;
     background-color: transparent;
     align-items: center;
     justify-content: center;
@@ -24,9 +29,17 @@ body {
     position: relative;
     width: 150px;
     font-size: 16px;
+    border: solid 1px var(--border-color);
+    background-color: var(--button-background);
+    height: max-content;
 
     img {
-      width: 100%;
+      width: 55%;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    span {
+      margin-bottom: 10px;
     }
   }
 
@@ -197,5 +210,55 @@ div.loader {
 
   100% {
     transform: scaleY(-1) rotate(-135deg);
+  }
+}
+
+#root {
+  width: 100%;
+}
+
+.secondary-container {
+  max-width: 100%;
+}
+
+.emoji-button {
+  height: 100px;
+  text-align: center;
+}
+
+.emoji-button.grow {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+  .main-container {
+    flex-direction: column-reverse;
+    .qn {
+      font-size: 1.5rem;
+    }
+  }
+  img.img-mid {
+    width: 60% !important;
+    margin-bottom: 30px;
+    margin-top: 15%;
+  }
+
+  .buttons {
+    justify-content: space-evenly;
+    button {
+      width: 30%;
+      font-size: 16px;
+      padding: 0;
+      img {
+        width: 60%;
+      }
+    }
+    span {
+      font-size: small;
+    }
+  }
+  #root {
+    padding: unset;
   }
 }

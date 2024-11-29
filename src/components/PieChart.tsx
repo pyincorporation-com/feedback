@@ -1,13 +1,20 @@
 import { PieChart } from "@mui/x-charts/PieChart";
 import { useChartValues } from "../contexts/chartValuesProvider";
 
-
 const PieChartComponent = () => {
-    const { chartValues } = useChartValues()
-
+    const { chartValues } = useChartValues();
+    const devideWidth = window.innerWidth
+    if (devideWidth > 1024) {
+        var cx_p = devideWidth - (devideWidth * 0.95)
+    } else {
+        var cx_p = devideWidth - (devideWidth * 0.83)
+    }
     return (
         <div
             style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
                 width: "450px",
                 height: "500px",
                 margin: "0 auto",
@@ -15,7 +22,9 @@ const PieChartComponent = () => {
                 color: "var(--color)",
                 borderRadius: "8px",
                 padding: "10px",
+                maxWidth: "100%"
             }}
+            className="pie-chart"
         >
             {chartValues ? (
                 <PieChart
@@ -34,8 +43,8 @@ const PieChartComponent = () => {
                             cornerRadius: 11,
                             startAngle: -77,
                             endAngle: 225,
-                            cx: 150,
-                            cy: 150,
+                            cx: cx_p,
+                            cy: 170,
                         },
                     ]}
                     margin={{
@@ -68,7 +77,6 @@ const PieChartComponent = () => {
             )}
         </div>
     );
-
 };
 
 export default PieChartComponent;

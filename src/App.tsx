@@ -37,7 +37,7 @@ function App() {
   }
 
   return (
-    <div className="container d-flex justify-content-between align-items-center">
+    <div className="container d-flex justify-content-between align-items-center main-container">
       {feedbackQuestion ?
         <QuestionContainer
           feedbackQuestion={feedbackQuestion}

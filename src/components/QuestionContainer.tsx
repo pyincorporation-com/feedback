@@ -21,7 +21,7 @@ const QuestionContainer = ({
 
     useEffect(() => {
         const transformedChartValues = feedbackQuestion.question_answers.map((answer) => ({
-            value: answer.answer_count, // Adjust according to your data structure
+            value: answer.answer_count,
             label: answer.answer,
         }));
         setChartValues(transformedChartValues);

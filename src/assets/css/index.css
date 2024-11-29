@@ -6,6 +6,11 @@ body img.img-mid {
   min-width: 40%;
 }
 
+.pie-chart {
+  display: flex;
+  align-items: center;
+}
+
 .buttons {
   align-items: baseline;
 }
@@ -13,7 +18,7 @@ body img.img-mid {
   margin: 10px;
   width: -moz-max-content;
   width: max-content;
-  border-radius: 50px;
+  border-radius: 10px;
   background-color: transparent;
   align-items: center;
   justify-content: center;
@@ -23,9 +28,18 @@ body img.img-mid {
   position: relative;
   width: 150px;
   font-size: 16px;
+  border: solid 1px var(--border-color);
+  background-color: var(--button-background);
+  height: -moz-max-content;
+  height: max-content;
 }
 .buttons button img {
-  width: 100%;
+  width: 55%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.buttons button span {
+  margin-bottom: 10px;
 }
 .buttons button:hover {
   transform: scale(1.2);
@@ -141,5 +155,53 @@ div.loader {
   }
   100% {
     transform: scaleY(-1) rotate(-135deg);
+  }
+}
+#root {
+  width: 100%;
+}
+
+.secondary-container {
+  max-width: 100%;
+}
+
+.emoji-button {
+  height: 100px;
+  text-align: center;
+}
+
+.emoji-button.grow {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+  .main-container {
+    flex-direction: column-reverse;
+  }
+  .main-container .qn {
+    font-size: 1.5rem;
+  }
+  img.img-mid {
+    width: 60% !important;
+    margin-bottom: 30px;
+    margin-top: 15%;
+  }
+  .buttons {
+    justify-content: space-evenly;
+  }
+  .buttons button {
+    width: 30%;
+    font-size: 16px;
+    padding: 0;
+  }
+  .buttons button img {
+    width: 60%;
+  }
+  .buttons span {
+    font-size: small;
+  }
+  #root {
+    padding: unset;
   }
 }/*# sourceMappingURL=index.css.map */
